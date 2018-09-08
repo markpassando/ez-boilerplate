@@ -1,7 +1,9 @@
 import React from 'react';
 import App from './App';
 import HomePage from './pages/HomePage';
-import UsersListPage, { loadData } from './pages/UsersListPage';
+import UsersListPage from './pages/UsersListPage';
+import AdminsListPage from './pages/AdminsListPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 export default [
   {
@@ -13,8 +15,15 @@ export default [
       exact: true
     },
     {
+      ...AdminsListPage,
+      path: '/admins',
+    },
+    {
       ...UsersListPage,
       path: '/users',
+    },
+    {
+      ...NotFoundPage
     }
   ]
   }
