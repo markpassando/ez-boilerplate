@@ -1,3 +1,5 @@
+// api is the custom instance of axios, all calls will be prepended with '/api'
+
 export const FETCH_USERS = 'fetch_users';
 export const fetchUsers = () => async (dispatch, getState, api) => {
   const res = await api.get('/users');

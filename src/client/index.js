@@ -10,6 +10,7 @@ import axios from 'axios';
 import Routes from './Routes';
 import reducers from './reducers';
 
+// Use custom client side instance of axios so it can be used by the server and client
 const axiosInstance = axios.create({
   baseURL: '/api',
 });
