@@ -5,6 +5,8 @@ import UsersListPage from './pages/UsersListPage';
 import AdminsListPage from './pages/AdminsListPage';
 import NotFoundPage from './pages/NotFoundPage';
 
+// Route style must be like this due to server side rendering
+// https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 export default [
   {
     ...App,
