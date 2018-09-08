@@ -23,13 +23,17 @@ app.get('*', (req, res) => {
     return route.loadData ? route.loadData(store) : null;
   })
   .map(promise => {
+    // One failed promise will fall out of promise.all
+    // Returns a promise stating whether the promise was successful or not
     if (promise) {
       return new Promise((resolve, reject) => {
+        // Always pass resolve so Promise.all will not fall out
         promise.then(resolve).catch(resolve);
       })
     }
   });
 
+  // All promises will be valid to avoid hanging, the page will attempt to render partially if a promise has failed
   Promise.all(promises).then(() => {
     const context = {};
     const content = renderer(req, store, context);
